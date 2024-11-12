@@ -3,7 +3,7 @@ import kushel from "../images/kushel.png";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useMain } from "../../hooks/useMain";
 import frame from "../images/Frame.png"
-import sad from '../images/sad.svg';
+
 
 const Auth = (props) => {
   const { login, setUser } = useMain();
@@ -92,7 +92,7 @@ const Auth = (props) => {
 <div className="login_new_div">
 
 
- <img className="kushel-logo2" src={sad} alt="" />
+ <img className="kushel-logo2" src={kushel} alt="" />
 
 
                 <div className="singWrap">

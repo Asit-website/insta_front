@@ -8,23 +8,23 @@ import { NavLink, useNavigate } from "react-router-dom";
 import notifyy from "../../images/notifyy.png"
 import redcancel from "../../images/redcancel.png"
 import { useMain } from '../../../hooks/useMain'
-import sad from '../../images/sad.svg'
 
 
-const HrNavbar = ({ setAlert }) => {
 
+const HrNavbar = ({ setAlert}) => {
+  
   let user = JSON?.parse(localStorage.getItem("hrms_user"));
 
-  const { fetchUserNotifyHR, deleteNotification } = useMain();
+  const { fetchUserNotifyHR , deleteNotification } = useMain();
 
 
   const updateUser = () => {
     document.getElementById("ty").classList.toggle("tys");
   };
 
-  const [allNotication, setAllNotification] = useState([]);
+  const [allNotication , setAllNotification] = useState([]);
 
-  const [shownotify, setShownotify] = useState(false);
+  const [shownotify , setShownotify] = useState(false);
 
   // const {user} = useMain();
   const handleLogout = () => {
@@ -40,7 +40,7 @@ const HrNavbar = ({ setAlert }) => {
     localStorage.removeItem("clock-in-date");
     localStorage.removeItem("break-seconds");
     localStorage.removeItem("break-time");
-
+   
 
     window.location.href = "/login";
     setAlert("success", "logout successfully");
@@ -58,20 +58,20 @@ const HrNavbar = ({ setAlert }) => {
   else if (hours >= 17 && hours <= 24) greet = "Evening";
 
 
-  const fetchNotification = async () => {
+  const fetchNotification  = async()=>{
     const ans = await fetchUserNotifyHR();
 
-    if (ans.status) {
+     if(ans.status){
       let notifications = ans?.notifications;
-      let reversedNotifications = notifications.slice().reverse();
+      let reversedNotifications = notifications.slice().reverse(); 
 
-      setAllNotification(reversedNotifications);
-    }
-  }
+      setAllNotification(reversedNotifications);  
+     }
+}
 
-  useEffect(() => {
-    fetchNotification();
-  }, [])
+useEffect(()=>{
+  fetchNotification();
+},[])
 
 
   return (
@@ -82,14 +82,14 @@ const HrNavbar = ({ setAlert }) => {
         <div className="logo-namewrap">
 
           <div className="logo ">
-            <img src={sad} alt="" />
+            <img src={kushel1} alt="" />
           </div>
 
           <NavLink to="/adminDash">
 
             <div className="second-logo flex items-center">
 
-
+          
             </div>
 
           </NavLink>
@@ -99,7 +99,7 @@ const HrNavbar = ({ setAlert }) => {
 
         <div className="navProfiIcons">
 
-          <img onClick={() => setShownotify(true)} src={notification} alt="" />
+          <img  onClick={()=>setShownotify(true)} src={notification} alt="" />
 
           {/* <img onClick={() => navigate("/hrDash/notification3")} src={chatbot} alt="" /> */}
 
@@ -133,60 +133,60 @@ const HrNavbar = ({ setAlert }) => {
 
       </div>
 
-      {/* this is notification sidebar  */}
+        {/* this is notification sidebar  */}
 
-      {
-        shownotify &&
-        <div className="notifySidwrap">
+ {
+  shownotify && 
+  <div className="notifySidwrap">
 
-          <div className="notifcont">
+  <div className="notifcont">
 
-            <nav>
-              <h2>Notifications</h2>
-              <img onClick={() => {
-                setShownotify(false);
-              }} src={redcancel} alt="" />
-            </nav>
+    <nav>
+     <h2>Notifications</h2>
+     <img onClick={()=>{
+      setShownotify(false);
+     }}  src={redcancel} alt="" />
+    </nav>
 
-            <hr />
+    <hr />
 
-            <div className="allnotiftcont">
+     <div className="allnotiftcont">
 
-              {
+         {
 
-                allNotication.length > 0 ?
+          allNotication.length > 0 ?
 
-                  allNotication?.map((item, index) => (
+           allNotication?.map((item , index)=>(
 
-                    <>
-                      <div key={index} className="singlnotify">
-                        <h2>{item?.title}</h2>
+             <>
+             <div key={index} className="singlnotify">
+               <h2>{item?.title}</h2>
 
-                        <p>{item?.description}</p>
+              <p>{item?.description}</p>
 
-                        <p>Date : {new Date(parseInt(item?.date)).toLocaleDateString()}</p>
-
-
-                      </div>
-
-                      <hr />
-                    </>
-
-                  ))
+              <p>Date : {new Date(parseInt(item?.date)).toLocaleDateString()}</p>
 
 
-                  :
-                  <div className="nonotify">
-                    <img src={notifyy} alt="" />
-                  </div>
-              }
+             </div>
 
-            </div>
+              <hr />
+             </>
 
-          </div>
+           ))
 
-        </div>
-      }
+           
+           :
+           <div className="nonotify">
+             <img src={notifyy} alt="" />
+           </div>
+         }
+
+     </div>
+
+  </div>
+
+</div>
+ }
     </>
   );
 };
