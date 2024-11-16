@@ -4,7 +4,6 @@ import { useMain } from '../../../hooks/useMain'
 import annPlus from "../../images/annPlus.png"
 import "./indicator.css"
 import { useEffect, useState } from 'react';
-import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import toast from 'react-hot-toast';
 import bxSerch from "../../images/bx-search.png"
@@ -13,6 +12,7 @@ import editsss from "../../images/editss.svg"
 import ccc from "../../images/ccc.png"
 import EmployeeSidebar from '../../Employee/Sidebar/EmployeeSidebar';
 import EmployeeNavbar from '../../Employee/Navbar/EmployeeNavbar';
+import { filter } from 'd3';
 
 
 const Assets = ({ pop, setPop, setAlert }) => {
@@ -27,6 +27,8 @@ const Assets = ({ pop, setPop, setAlert }) => {
   const [employee, setEmployee] = useState([]);
 
   const [data, setData] = useState([]);
+  const [allAsset,setAllAsset] = useState([])
+  const [assetSearch,setAssetSearch] = useState("")
 
   const [refreshFlag, setRefreshFlag] = useState(false);
   const [onEdit, setOnEdit] = useState(false);
@@ -96,6 +98,7 @@ const Assets = ({ pop, setPop, setAlert }) => {
   const getData = async () => {
     const ans = await getAssets();
     setData(ans?.data);
+    setAllAsset(ans?.data)
     setRefreshFlag(!refreshFlag)
   }
 
@@ -128,6 +131,19 @@ const Assets = ({ pop, setPop, setAlert }) => {
 
    const [showdots , setShowdots] = useState(null);
 
+   useEffect(()=>{
+     if(assetSearch === ""){
+      setData([...allAsset])
+     }
+     else{
+      const filterData = allAsset.filter((asset)=> asset?.Employee?.toLowerCase()?.includes(assetSearch.toLowerCase()))
+      if(filterData){
+        setData(filterData);
+        console.log(filterData);
+      }
+     }
+   },[assetSearch])
+
   return (
     <>
       <div className="annDash relative h-full">
@@ -157,7 +173,7 @@ const Assets = ({ pop, setPop, setAlert }) => {
               </div>
 
               {/* rogth side  */}
-              <div onClick={() => setOpenForm(true)} className='plusImg'>
+              <div onClick={() => setOpenForm(true)} className='plusImg55'>
 
                 <img src={annPlus} alt="" />
                <span>  Add New</span>
@@ -177,7 +193,7 @@ const Assets = ({ pop, setPop, setAlert }) => {
 
                 <div className="amtopsrch">
 
-                  <input type="text" placeholder='Search Employee' />
+                  <input value={assetSearch} onChange={(e)=> setAssetSearch(e.target.value)} type="text" placeholder='Search Employee' />
                    <img src={bxSerch} alt="" />
 
                 </div>
