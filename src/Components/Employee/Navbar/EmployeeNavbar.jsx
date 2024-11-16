@@ -7,7 +7,7 @@ import { NavLink } from "react-router-dom";
 import "react-circular-progressbar/dist/styles.css";
 import LogoutPop from "../Popup/LogoutPop";
 import { useMain } from "../../../hooks/useMain";
-import kushel1 from "../../images/kushel1.png";
+import kushel1 from "../../images/instalogo.svg";
 import redcancel from "../../images/redcancel.png"
 import notifyy from "../../images/notifyy.png"
 

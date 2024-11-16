@@ -276,19 +276,15 @@
     color: black !important;
 }
 
-.theadqu2 {
-    /* background: #0B56E3; */
-
-}
 
 .theadqu2 th {
-    /* background: #0B56E3 !important; */
-    font-family: Inter;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 32px;
-    color: white !important;
-
+        font-family: Inter;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 22px;
+        color: #101820 !important;
+        border: 1px solid black !important;
+        background-color: white !important;
 }
 
 .tabletr input {
@@ -312,8 +308,26 @@
     line-height: 32px;
     text-align: left;
     color: #101820;
+    border:1px  solid black !important;
 }
 
+.list-discli{
+    border-bottom: 1px solid black ;
+}
+
+.addpaddingo{
+    padding:0px !important;
+
+}
+
+.adpading{
+    padding: 5px 10px;
+}
+
+
+.downpara{
+    padding:20px 0px;
+}
 .tabletr .inpu11 {
     width: 340px;
     height: 34px;
@@ -350,19 +364,69 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 500px;
+    max-width: 100%;
+
 }
 
 .hdquot p {
     font-family: Inter;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 600;
-    line-height: 32px;
+    line-height: 26px;
     text-align: left;
     color: #101820;
 
 }
 
+
+.hdqro2wrap{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+.hdqro2wrap p{
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 22px;
+    text-align: left;
+    color: #101820;
+}
+
+.qutoletheading{
+    font-family: Inter;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 22px;
+    text-align: center;
+    text-decoration: underline;
+    color: #101820;
+}
+
+
+.tabletr2 td{
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22px;
+    color: #101820;
+}
+
+.list-disc  li{
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    color: #101820;
+}
+.hdqrotp1{
+width: 100%;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
 .hdquot img {
     width: 200px;
     height: 100px;

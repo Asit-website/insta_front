@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import kushel1 from "../../images/kushel1.png";
+import kushel1 from "../../images/instalogo.svg";
 import notification from "../../images/notifications.png"
 import lok from "../../images/lok.png";
 import bottom from "../../images/bottom.png";

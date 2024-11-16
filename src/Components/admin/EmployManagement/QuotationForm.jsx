@@ -70,7 +70,7 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
 
   const [logoImage, setLogoImage] = useState("");
 
-  const [preview, setPreivew] = useState(true);
+  const [preview, setPreivew] = useState(false);
 
   const handleFileChange = async (event) => {
     const file = event.target.files[0];
@@ -506,13 +506,18 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
               {preview && (
                 <div className="previwwraps">
                   <div className="qutaRight">
+
                     <div ref={contonentPDF} className="qutaRightcont">
+
                       <div className="hdquot">
+
                         {logoImage ? (
                           <img src={logoImage} alt="Logo" />
                         ) : (
                           <p></p>
                         )}
+
+                         
 
                         <div className="hdqortright">
                           <p>{formdata?.companyName}</p>
@@ -522,6 +527,7 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
                           <p>{formdata?.website}</p>
                           <p>CIN: {formdata?.CINnum}</p>
                         </div>
+
                       </div>
 
                       <hr />
@@ -561,7 +567,7 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
         <td className="addpaddingo w-full border border-black">
           <ul className="list-disc ">
             {row.para.map((para, paraIndex) => (
-              <li className={`addpadd ${ paraIndex < row?.para?.length-1 && "list-discli" }`} key={paraIndex}>{para}</li>
+              <li className={`adpading ${ paraIndex < row?.para?.length-1 && "list-discli" }`} key={paraIndex}>{para}</li>
             ))}
           </ul>
         </td>
@@ -579,7 +585,6 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
                         more details.
                       </p>
 
-                      {/* <img className="singnaturimg" src={signature} alt="" /> */}
                     </div>
 
                     <hr />
@@ -601,6 +606,7 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
                         <span>Print</span>
                       </button>
                     </div>
+
                   </div>
                 </div>
               )}
