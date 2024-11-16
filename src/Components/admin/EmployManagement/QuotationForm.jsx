@@ -548,7 +548,7 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
   <thead className="theadqu2">
     <tr>
       <th scope="col" className="px-2 py-3 border border-black w-[30%]">Subject</th>
-      <th scope="col" className="px-2 py-3 border border-black w-[70%]">Paras</th>
+      <th scope="col" className="px-2 py-3 border border-black w-[70%]">Para</th>
     </tr>
   </thead>
   <tbody>
