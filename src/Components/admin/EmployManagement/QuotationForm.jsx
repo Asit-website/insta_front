@@ -11,18 +11,16 @@ import "./quote.css";
 import JoditEditor from "jodit-react";
 import { useEffect, useRef, useState } from "react";
 import toast from "react-hot-toast";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { useReactToPrint } from "react-to-print";
-import insta from '../../images/sodag.svg';
-import renning from '../../images/rening.png';
-// import signature from "../../images/signature.png";
+import insta from "../../images/sodag.svg";
+import renning from "../../images/rening.png";
+import { RxCross2 } from "react-icons/rx";
 
-const data = `<h3 style="box-sizing: border-box; border-width: 0px; border-style: solid; border-color: rgb(229, 231, 235); --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; padding: 0px; margin: 0px; font-family: Inter; font-size: 18px; font-weight: 500; line-height: 32px; text-align: left; color: rgb(16, 24, 32); font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;">User App(android/iOS)</h3><ul class="ulist" style="box-sizing: border-box; border-width: 0px; border-style: solid; border-color: rgb(229, 231, 235); --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; padding: 0px; margin: 0px; font-family: gilroy; list-style: none; color: rgb(0, 0, 0); font-size: medium; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"><li style="box-sizing: border-box; border-width: 0px; border-style: solid; border-color: rgb(229, 231, 235); --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; padding: 0px; margin: 0px; font-family: Inter; font-size: 18px; font-weight: 500; line-height: 32px; text-align: left; color: rgb(16, 24, 32);">Login with</li></ul><ol class="ollist" style="box-sizing: border-box; border-width: 0px; border-style: solid; border-color: rgb(229, 231, 235); --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; padding: 0px; margin: 0px; font-family: gilroy; list-style: none; color: rgb(0, 0, 0); font-size: medium; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"><li style="box-sizing: border-box; border-width: 0px; border-style: solid; border-color: rgb(229, 231, 235); --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; padding: 0px; margin: 0px; font-family: Inter; font-size: 18px; font-weight: 400; line-height: 32px; text-align: left; color: rgb(16, 24, 32);">1. Email address</li><li style="box-sizing: border-box; border-width: 0px; border-style: solid; border-color: rgb(229, 231, 235); --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; padding: 0px; margin: 0px; font-family: Inter; font-size: 18px; font-weight: 400; line-height: 32px; text-align: left; color: rgb(16, 24, 32);">2. Password</li></ol><ul class="ulist" style="box-sizing: border-box; border-width: 0px; border-style: solid; border-color: rgb(229, 231, 235); --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; padding: 0px; margin: 0px; font-family: gilroy; list-style: none; color: rgb(0, 0, 0); font-size: medium; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"><li style="box-sizing: border-box; border-width: 0px; border-style: solid; border-color: rgb(229, 231, 235); --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; padding: 0px; margin: 0px; font-family: Inter; font-size: 18px; font-weight: 500; line-height: 32px; text-align: left; color: rgb(16, 24, 32);">Sign Up</li></ul><ol class="ollist" style="box-sizing: border-box; border-width: 0px; border-style: solid; border-color: rgb(229, 231, 235); --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; padding: 0px; margin: 0px; font-family: gilroy; list-style: none; color: rgb(0, 0, 0); font-size: medium; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"><li style="box-sizing: border-box; border-width: 0px; border-style: solid; border-color: rgb(229, 231, 235); --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; padding: 0px; margin: 0px; font-family: Inter; font-size: 18px; font-weight: 400; line-height: 32px; text-align: left; color: rgb(16, 24, 32);"><span style="box-sizing: border-box; border-width: 0px; border-style: solid; border-color: rgb(229, 231, 235); --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; padding: 0px; margin: 0px; font-family: Inter; font-size: 18px; font-weight: 600; line-height: 26px; text-align: left;">Name:</span><span>&nbsp;</span>You’ll likely be asked to enter your first and last name.</li><li style="box-sizing: border-box; border-width: 0px; border-style: solid; border-color: rgb(229, 231, 235); --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; padding: 0px; margin: 0px; font-family: Inter; font-size: 18px; font-weight: 400; line-height: 32px; text-align: left; color: rgb(16, 24, 32);"><span style="box-sizing: border-box; border-width: 0px; border-style: solid; border-color: rgb(229, 231, 235); --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; padding: 0px; margin: 0px; font-family: Inter; font-size: 18px; font-weight: 600; line-height: 26px; text-align: left;">Email address:<span>&nbsp;</span></span>You’ll need to provide a valid email address to create an account.</li></ol>`;
 
 const QuotationForm = ({ setAlert, pop, setPop }) => {
   const {
     user,
-    uploadSingleImage,
     postQuotationFormApi,
     updateQuotationFormApi,
   } = useMain();
@@ -31,24 +29,15 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
 
   const location = useLocation();
 
-  const { id, item } = location.state;
+  const { leadId, item } = location.state;
+
 
   const [formdata, setFormdata] = useState({
     quotationNum: "",
     customerName: "",
-    CINnum: "",
-    mobileNum: "",
     quotationDate: "",
-    validUntil: "",
-    customerId: "",
-    companyName: "",
-    companyAddress: "",
-    companyGSTIN: "",
-    companyWebsite: "",
     customerCompany: "",
     customerAddress: "",
-    email: "",
-    website: "",
   });
 
   const textChangeHandler = (e) => {
@@ -59,45 +48,73 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
     }));
   };
 
-  const editor = useRef(null);
-
-  const [content, setContent] = useState(data);
   const { role } = hrms_user;
-
-  const fileInputRef = useRef(null);
-
-  const handleImageClick = () => {
-    fileInputRef.current.click();
-  };
-
-  const [logoImage, setLogoImage] = useState("");
 
   const [preview, setPreivew] = useState(false);
 
-  const handleFileChange = async (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      const formdata2 = new FormData();
-      formdata2.append("Image", file);
+  const navigate = useNavigate();
 
-      const ans = await uploadSingleImage(formdata2);
-      if (ans?.status) {
-        sessionStorage.setItem("quotationLogoLink", ans?.link);
-        toast.success("Successfuly uploaded");
-        setLogoImage(ans?.link);
-      } else {
-        toast.error("Something went wrong , please try again");
-      }
-    }
-  };
-
-  const [rows, setRows] = useState([{ subject: "", para: [] }]);
-
-  const [rows1, setRows1] = useState([{ subject: "", para: [] }]);
-
-  const addRow = () => {
-    setRows([...rows, { subject: "", para: [] }]);
-  };
+  const [rows, setRows] = useState([
+    {
+      subject: "Subject",
+      para: [],
+    },
+    {
+      subject: "About",
+      para: [],
+    },
+    {
+      subject: "Process",
+      para: [],
+    },
+    {
+      subject: "Timeline",
+      para: [
+        "Timeline	BIS Certification Process Step 1 to 3:  10 -15 Working days",
+        "	BIS Certification Process Step 4 to 6:  10-15 Working days",
+        "	The complete duration to obtain the BIS certificates will take 20-25 working days",
+      ],
+    },
+    {
+      subject: "Validity",
+      para: ["2 years"],
+    },
+    {
+      subject: "Commercial Scope",
+      para: [],
+    },
+    {
+      subject: "Payment Terms",
+      para: [],
+    },
+    {
+      subject: "Our Banking Details",
+      para: [
+        "Our Banking Details	Bank Detail for the Transaction",
+        "Beneficiary: Instacertify Labs Private Limited",
+        "Bank Name: YES BANK",
+        "Account No: 026485800001318 GSTIN: 09AAGCI8396C1Z7 ",
+        "Branch: Ground Mezzanine and First Floor, Plot No.6 Basant Lok, Vasant Vihar New Delhi, Delhi, India-110057 ",
+        "IFSC CODE: YESB0000264, Swift code No: YESBINBBDEL (For transfer in USD) ",
+      ],
+    },
+    {
+      subject: "Sample Requirement ",
+      para: [],
+    },
+    {
+      subject: "Details and Documents Required ",
+      para: [],
+    },
+    {
+      subject: "Deliverables",
+      para: [],
+    },
+    {
+      subject: "Other Information",
+      para: [],
+    },
+  ]);
 
   const addPara = (index) => {
     const newRows = [...rows];
@@ -105,48 +122,121 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
     setRows(newRows);
   };
 
-  const addRow1 = () => {
-    setRows1([...rows1, { subject: "", para: [] }]);
+  const addPara2 = (index) => {
+    const newRows = [...rows];
+    newRows[index].para.push({ para1: "", para2: "", para3: "" });
+    setRows(newRows);
   };
 
-  const addPara1 = (index) => {
-    const newRows = [...rows1];
-    newRows[index].para.push("");
-    setRows1(newRows);
+  const removeParaIndex = (index, paraIndex) => {
+    const newRows = [...rows];
+    newRows[index].para.splice(paraIndex, 1);
+    setRows(newRows);
+  };
+
+  const handleInputChange = (e, rowIndex, paraIndex) => {
+    const updatedRows = [...rows];
+    updatedRows[rowIndex].para[paraIndex] = e.target.value;
+    setRows(updatedRows);
+  };
+
+  const handleInputChange2 = (e, rowIndex, paraIndex, place) => {
+    if (place === 1) {
+      const updatedRows = [...rows];
+      updatedRows[rowIndex].para[paraIndex].para1 = e.target.value;
+      setRows(updatedRows);
+    } else if (place === 2) {
+      const updatedRows = [...rows];
+      updatedRows[rowIndex].para[paraIndex].para2 = e.target.value;
+      setRows(updatedRows);
+    } else {
+      // place === 3
+      const updatedRows = [...rows];
+      updatedRows[rowIndex].para[paraIndex].para3 = e.target.value;
+      setRows(updatedRows);
+    }
   };
 
   const postQuotationForm = async () => {
     const toastId = toast.loading("Loading...");
 
-    const ans = await postQuotationFormApi({
-      ...formdata,
-      items: rows, rows1,
-      userId: hrms_user?._id,
-      leadId: id,
-      content,
-    });
+    const postform = {...formdata , userId: hrms_user?._id,leadId: leadId ,  rows};
+
+    const ans = await postQuotationFormApi(postform);
 
     if (ans?.status) {
       toast.success("Successfuly created");
       setFormdata({
         quotationNum: "",
         customerName: "",
-        customerReq: "",
-        mobileNum: "",
         quotationDate: "",
-        validUntil: "",
-        customerId: "",
-        companyName: "",
-        companyAddress: "",
-        companyGSTIN: "",
-        companyWebsite: "",
+        customerCompany: "",
+        customerAddress: "",
       });
 
       sessionStorage.removeItem("quotationLogoLink");
 
-      setRows([]);
-      setRows1([]);
-      setContent(data);
+      setRows([
+        {
+          subject: "Subject",
+          para: [],
+        },
+        {
+          subject: "About",
+          para: [],
+        },
+        {
+          subject: "Process",
+          para: [],
+        },
+        {
+          subject: "Timeline",
+          para: [
+            "Timeline	BIS Certification Process Step 1 to 3:  10 -15 Working days",
+            "	BIS Certification Process Step 4 to 6:  10-15 Working days",
+            "	The complete duration to obtain the BIS certificates will take 20-25 working days",
+          ],
+        },
+        {
+          subject: "Validity",
+          para: ["2 years"],
+        },
+        {
+          subject: "Commercial Scope",
+          para: [],
+        },
+        {
+          subject: "Payment Terms",
+          para: [],
+        },
+        {
+          subject: "Our Banking Details",
+          para: [
+            "Our Banking Details	Bank Detail for the Transaction",
+            "Beneficiary: Instacertify Labs Private Limited",
+            "Bank Name: YES BANK",
+            "Account No: 026485800001318 GSTIN: 09AAGCI8396C1Z7 ",
+            "Branch: Ground Mezzanine and First Floor, Plot No.6 Basant Lok, Vasant Vihar New Delhi, Delhi, India-110057 ",
+            "IFSC CODE: YESB0000264, Swift code No: YESBINBBDEL (For transfer in USD) ",
+          ],
+        },
+        {
+          subject: "Sample Requirement ",
+          para: [],
+        },
+        {
+          subject: "Details and Documents Required ",
+          para: [],
+        },
+        {
+          subject: "Deliverables",
+          para: [],
+        },
+        {
+          subject: "Other Information",
+          para: [],
+        },
+      ]);
     }
     toast.dismiss(toastId);
   };
@@ -154,79 +244,111 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
   const updateQuotationForm = async () => {
     const toastId = toast.loading("Loading...");
 
-    const ans = await updateQuotationFormApi({
-      ...formdata,
-      items: rows, rows1,
-      userId: hrms_user?._id,
-      leadId: id,
-      content,
-      id: item?._id,
-    });
+    const postform = {...formdata , userId: hrms_user?._id, leadId: leadId , rows  };
+    let id = item?._id;
+    const ans = await updateQuotationFormApi(postform , id);
 
     if (ans?.status) {
       toast.success("Successfuly updated");
       setFormdata({
         quotationNum: "",
         customerName: "",
-        customerReq: "",
-        mobileNum: "",
         quotationDate: "",
-        validUntil: "",
-        customerId: "",
-        companyName: "",
-        companyAddress: "",
-        companyGSTIN: "",
-        companyWebsite: "",
+        customerCompany: "",
+        customerAddress: "",
       });
 
-      setRows([]);
-      setRows1([]);
-      setContent(data);
+      navigate(-1);
+
+      setRows([
+        {
+          subject: "Subject",
+          para: [],
+        },
+        {
+          subject: "About",
+          para: [],
+        },
+        {
+          subject: "Process",
+          para: [],
+        },
+        {
+          subject: "Timeline",
+          para: [
+            "Timeline	BIS Certification Process Step 1 to 3:  10 -15 Working days",
+            "	BIS Certification Process Step 4 to 6:  10-15 Working days",
+            "	The complete duration to obtain the BIS certificates will take 20-25 working days",
+          ],
+        },
+        {
+          subject: "Validity",
+          para: ["2 years"],
+        },
+        {
+          subject: "Commercial Scope",
+          para: [],
+        },
+        {
+          subject: "Payment Terms",
+          para: [],
+        },
+        {
+          subject: "Our Banking Details",
+          para: [
+            "Our Banking Details	Bank Detail for the Transaction",
+            "Beneficiary: Instacertify Labs Private Limited",
+            "Bank Name: YES BANK",
+            "Account No: 026485800001318 GSTIN: 09AAGCI8396C1Z7 ",
+            "Branch: Ground Mezzanine and First Floor, Plot No.6 Basant Lok, Vasant Vihar New Delhi, Delhi, India-110057 ",
+            "IFSC CODE: YESB0000264, Swift code No: YESBINBBDEL (For transfer in USD) ",
+          ],
+        },
+        {
+          subject: "Sample Requirement ",
+          para: [],
+        },
+        {
+          subject: "Details and Documents Required ",
+          para: [],
+        },
+        {
+          subject: "Deliverables",
+          para: [],
+        },
+        {
+          subject: "Other Information",
+          para: [],
+        },
+      ]);
+
       sessionStorage.removeItem("quotationLogoLink");
     }
+ 
     toast.dismiss(toastId);
   };
 
-  useEffect(() => {
-    const quotationLogoLink = sessionStorage.getItem("quotationLogoLink");
-    if (quotationLogoLink) {
-      setLogoImage(quotationLogoLink);
-    }
-  }, []);
 
   useEffect(() => {
     if (item) {
       const {
-        quotationNum,
+        customerAddress,
+        customerCompany,
         customerName,
-        customerReq,
-        mobileNum,
         quotationDate,
-        validUntil,
-        customerId,
-        companyName,
-        companyAddress,
-        companyGSTIN,
-        companyWebsite,
-        items,
+        quotationNum,
+        rows,
       } = item;
-      setRows(items);
-      setRows1(items);
+      setRows(rows);
       setFormdata({
-        quotationNum,
+        customerAddress,
+        customerCompany,
         customerName,
-        customerReq,
-        mobileNum,
         quotationDate,
-        validUntil,
-        customerId,
-        companyName,
-        companyAddress,
-        companyGSTIN,
-        companyWebsite,
+        quotationNum,
       });
     }
-  }, []);
+  }, [location]);
 
   const contonentPDF = useRef();
 
@@ -329,28 +451,6 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
                       />
                     </label>
 
-                    {/* <label>
-                      <p>CIN No.</p>
-                      <input
-                        type="text"
-                        value={formdata.CINnum}
-                        name="CINnum"
-                        onChange={textChangeHandler}
-                        placeholder="CIN number"
-                      />
-                    </label> */}
-
-                    {/* <label>
-                      <p>Mobile Number*</p>
-                      <input
-                        value={formdata.mobileNum}
-                        name="mobileNum"
-                        onChange={textChangeHandler}
-                        type="text"
-                        placeholder="+918595046368"
-                      />
-                    </label> */}
-
                     <label>
                       <p>Quotation Date*</p>
                       <input
@@ -360,83 +460,6 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
                         type="date"
                       />
                     </label>
-
-                    {/* <label>
-                      <p>Email*</p>
-                      <input
-                        value={formdata.email}
-                        name="email"
-                        onChange={textChangeHandler}
-                        type="email"
-                        placeholder="instacertify@gmail.com"
-                      />
-                    </label> */}
-
-                    {/* <label>
-                      <p>Website*</p>
-                      <input
-                        value={formdata.website}
-                        name="website"
-                        onChange={textChangeHandler}
-                        type="text"
-                        placeholder="www.instacertify.com"
-                      />
-                    </label> */}
-
-                    {/* <label>
-                      <p>Company Name*</p>
-                      <input
-                        value={formdata.companyName}
-                        name="companyName"
-                        onChange={textChangeHandler}
-                        type="text"
-                        placeholder="INSTACERTIFY PVT LTD"
-                      />
-                    </label> */}
-
-                    {/* <label>
-                      <p>Company Address*</p>
-                      <input
-                        value={formdata.companyAddress}
-                        name="companyAddress"
-                        onChange={textChangeHandler}
-                        type="text"
-                        placeholder=""
-                      />
-                    </label> */}
-
-                    {/* <label>
-                      <p>Company GSTIN*</p>
-                      <input
-                        value={formdata.companyGSTIN}
-                        name="companyGSTIN"
-                        onChange={textChangeHandler}
-                        type="text"
-                      />
-                    </label> */}
-
-                    {/* <label>
-                      <p>Company Website*</p>
-                      <input
-                        value={formdata.companyWebsite}
-                        name="companyWebsite"
-                        onChange={textChangeHandler}
-                        type="text"
-                      />
-                    </label> */}
-                    {/* 
-                    <div className="admorewrap">
-                      <div className="image" onClick={handleImageClick}>
-                        <img src={inputfileds} alt="" />
-                        <p>Add Business Logo</p>
-                        <input
-                          type="file"
-                          ref={fileInputRef}
-                          style={{ display: "none" }}
-                          onChange={handleFileChange}
-                        />
-                      </div>
-                    </div> */}
                   </form>
 
                   <div className="docuThird">
@@ -444,168 +467,138 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
 
                     <hr />
 
-                    <div className="relative">
-                      <table className="quotablle text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                        {/* <thead className="theadqu">
-                          <tr>
-                            <th scope="col" className="px-2 py-3">
-                              Subject
-                            </th>
-                            <th scope="col" className="px-2 py-3">
-                              Para
-                            </th>
-                          </tr>
-                        </thead> */}
-                        <tbody>
-                          {rows.map((row, index) => (
-                            <tr className="bg-white tabletr" key={index}>
-                              {/* Subject input */}
-                              <td className="px-2 py-4">
-                                <label className="lablis" style={{ display: "block" }} htmlFor="">Subject</label>
-                                <input
-                                  type="text"
-                                  className="inpu11"
-                                  value={row.subject}
-                                  onChange={(e) => {
-                                    const newRows = [...rows];
-                                    newRows[index].subject = e.target.value;
-                                    setRows(newRows);
-                                  }}
-                                />
-                              </td>
+                    <div className="allrowwracont">
+                      {rows.map((row, index) => (
+                        <div className="bg-white tabletr" key={index}>
+                          <p className="rowsubjename">{row.subject}</p>
 
-                              {/* Para inputs with Add button */}
-                              <td className="px-2 py-4">
-                                {row.para.map((item, paraIndex) => (
-                                  <div
-                                    key={paraIndex}
-                                    className="flex items-center gap-2 mb-2"
-                                  >
+                          <div className="allparainpusts">
+                            {row?.para?.map((item, paraIndex) => (
+                              <div key={paraIndex}>
+                                {row.subject === "Commercial Scope" ? (
+                                  <div className="commercialinputs">
+                                    <div className="inpu12">
+                                      <input
+                                        type="text"
+                                        value={item?.para1}
+                                        onChange={(e) =>
+                                          handleInputChange2(
+                                            e,
+                                            index,
+                                            paraIndex,
+                                            1
+                                          )
+                                        }
+                                        placeholder="Particular"
+                                      />
+                                      <RxCross2
+                                        onClick={() => {
+                                          removeParaIndex(index, paraIndex);
+                                        }}
+                                        className="RxCross2aqr"
+                                      />
+                                    </div>
+
+                                    <div className="inpu12">
+                                      <input
+                                        type="text"
+                                        value={item?.para2}
+                                        onChange={(e) =>
+                                          handleInputChange2(
+                                            e,
+                                            index,
+                                            paraIndex,
+                                            2
+                                          )
+                                        }
+                                        placeholder="Currency"
+                                      />
+                                      <RxCross2
+                                        onClick={() => {
+                                          removeParaIndex(index, paraIndex);
+                                        }}
+                                        className="RxCross2aqr"
+                                      />
+                                    </div>
+
+                                    <div className="inpu12">
+                                      <input
+                                        type="text"
+                                        value={item?.para3}
+                                        onChange={(e) =>
+                                          handleInputChange2(
+                                            e,
+                                            index,
+                                            paraIndex,
+                                            3
+                                          )
+                                        }
+                                        placeholder="Amount"
+                                      />
+                                      <RxCross2
+                                        onClick={() => {
+                                          removeParaIndex(index, paraIndex);
+                                        }}
+                                        className="RxCross2aqr"
+                                      />
+                                    </div>
+                                  </div>
+                                ) : (
+                                  <div className="inpu11">
                                     <input
                                       type="text"
                                       value={item}
-                                      onChange={(e) => {
-                                        const newRows = [...rows];
-                                        newRows[index].para[paraIndex] =
-                                          e.target.value;
-                                        setRows(newRows);
+                                      onChange={(e) =>
+                                        handleInputChange(e, index, paraIndex)
+                                      }
+                                      className=""
+                                    />
+                                    <RxCross2
+                                      onClick={() => {
+                                        removeParaIndex(index, paraIndex);
                                       }}
-                                      className="inpu11"
+                                      className="RxCross2aqr"
                                     />
                                   </div>
-                                ))}
+                                )}
+                              </div>
+                            ))}
 
-                                <div
-                                  onClick={() => addPara(index)}
-                                  className="admorCont cursor-pointer"
-                                >
-                                  <img src={plussing} alt="" />
-                                  <span>Add Para</span>
-                                </div>
-                              </td>
-                            </tr>
-                          ))}
-
-                          {rows1.map((row, index) => (
-                            <tr className="bg-white tabletr" key={index}>
-                              {/* Subject input */}
-                              <td className="px-2 py-4">
-                                <label className="lablis" style={{ display: "block" }} htmlFor="">About</label>
-                                <input
-                                  type="text"
-                                  className="inpu11"
-                                  value={row.subject}
-                                  onChange={(e) => {
-                                    const newRows = [...rows1];
-                                    newRows[index].subject = e.target.value;
-                                    setRows1(newRows);
-                                  }}
-                                />
-                              </td>
-
-                              {/* Para inputs with Add button */}
-                              <td className="px-2 py-4">
-                                {row.para.map((item, paraIndex) => (
-                                  <div
-                                    key={paraIndex}
-                                    className="flex items-center gap-2 mb-2"
-                                  >
-                                    <input
-                                      type="text"
-                                      value={item}
-                                      onChange={(e) => {
-                                        const newRows = [...rows1];
-                                        newRows[index].para[paraIndex] =
-                                          e.target.value;
-                                        setRows1(newRows);
-                                      }}
-                                      className="inpu11"
-                                    />
-                                  </div>
-                                ))}
-
-                                <div
-                                  onClick={() => addPara1(index)}
-                                  className="admorCont cursor-pointer"
-                                >
-                                  <img src={plussing} alt="" />
-                                  <span>Add Para</span>
-                                </div>
-                              </td>
-                            </tr>
-                          ))}
-
-                        </tbody>
-                      </table>
-
-                      {/* Add Item button */}
-                    </div>
-
-                    <div onClick={addRow} className="admorCont">
-                      {/* <img src={plussing} alt="" /> */}
-                      {/* <span>Add Item</span> */}
+                            <div
+                              onClick={() => {
+                                row.subject === "Commercial Scope"
+                                  ? addPara2(index)
+                                  : addPara(index);
+                              }}
+                              className="admorCont cursor-pointer"
+                            >
+                              <img src={plussing} alt="" />
+                              <span>Add {row.subject}</span>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>
-
-                {/* right side */}
               </div>
 
               {preview && (
                 <div className="previwwraps">
                   <div className="qutaRight">
-
                     <div ref={contonentPDF} className="qutaRightcont">
-
                       <div className="hdquot">
-
-                        {/* {logoImage ? (
-                          <img src={logoImage} alt="Logo" />
-                        ) : (
-                          <p></p>
-                        )} */}
-
                         <img src={insta} alt="" />
 
-
-
                         <div className="hdqortright">
-                          {/* <p>{formdata?.companyName}</p> */}
                           <p className="labs">INSTACERTIFY LABS PVT LTD</p>
-                          {/* <p>{formdata?.companyAddress}</p> */}
                           <p className="labs1">PK 1 Sector 63 A Noida</p>
-                          {/* <p>{formdata?.mobileNum}</p> */}
                           <p className="labs1">Uttar Pradesh, india-201301</p>
-                          {/* <p>{formdata?.email}</p> */}
                           <p className="labs1">+91 9999118039</p>
-                          {/* <p>{formdata?.website}</p> */}
                           <p className="labs1">contact@instacertify.com</p>
-                          {/* <p>CIN: {formdata?.CINnum}</p>
-                           */}
                           <p className="labs1">www.instacertify.com</p>
                           <p className="labs">CIN: UP74999UP2022PTC170291</p>
                         </div>
-
                       </div>
 
                       <hr />
@@ -630,45 +623,75 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
                         <div class="relative w-full">
                           <table className="quotablle2 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 border-collapse border border-black">
                             <thead className="theadqu2">
-                              <tr>
-                                <th scope="col" className="px-2 py-3 border border-black w-[30%]">Subject</th>
-                                <th scope="col" className="px-2 py-3 border border-black w-[70%]">Para</th>
-                              </tr>
+                    
                             </thead>
                             <tbody>
                               {rows?.map((row, index) => (
-                                <tr className="bg-white tabletr2 border border-black" key={index}>
-                                  {/* Subject */}
-                                  <td className="px-2 py-4 border border-black">{row.subject}</td>
-
-                                  {/* Paras */}
-                                  <td className="addpaddingo w-full border border-black">
-                                    <ul className="list-disc ">
-                                      {row.para.map((para, paraIndex) => (
-                                        <li className={`adpading ${paraIndex < row?.para?.length - 1 && "list-discli"}`} key={paraIndex}>{para}</li>
-                                      ))}
-                                    </ul>
+                                <tr
+                                  className="bg-white tabletr2 border border-black"
+                                  key={index}
+                                >
+                                  <td className="px-2 py-4 border border-black">
+                                    {row.subject}
                                   </td>
-                                </tr>
-                              ))}
-                              {rows1?.map((row, index) => (
-                                <tr className="bg-white tabletr2 border border-black" key={index}>
-                                  {/* Subject */}
-                                  <td className="px-2 py-4 border border-black">{row.subject}</td>
 
-                                  {/* Paras */}
-                                  <td className="addpaddingo w-full border border-black">
-                                    <ul className="list-disc ">
-                                      {row.para.map((para, paraIndex) => (
-                                        <li className={`adpading ${paraIndex < row?.para?.length - 1 && "list-discli"}`} key={paraIndex}>{para}</li>
-                                      ))}
-                                    </ul>
+                                  <td className="addpaddingo w-full ">
+                                    {row.subject === "Commercial Scope" ? (
+                                      <table className="w-full addmargin0">
+                                        <thead className="theadqu22">
+                                          <tr>
+                                            <th className="px-2 py-2 particluwith ">
+                                              	Particular 	 
+                                            </th>
+                                            <th className="px-2 py-2 ">
+                                            Currency
+                                            </th>
+                                            <th className="px-2 py-2 ">
+                                            Amount
+                                            </th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          {row.para.map((item, paraIndex) => (
+                                            <tr
+                                              key={paraIndex}
+                                              className=""
+                                            >
+                                              <td className="px-2 py-2 para1qutaos">
+                                                {item.para1}
+                                              </td>
+                                              <td className="px-2 py-2  para1qutaos">
+                                                {item.para2}
+                                              </td>
+                                              <td className="px-2 py-2  para1qutaos">
+                                                {item.para3}
+                                              </td>
+                                            </tr>
+                                          ))}
+                                        </tbody>
+                                      </table>
+                                    ) : (
+                                      // Render regular list for other rows
+                                      <ul className="list-disc">
+                                        {row.para.map((para, paraIndex) => (
+                                          <li
+                                            className={`adpading ${
+                                              paraIndex <
+                                                row?.para?.length - 1 &&
+                                              "list-discli"
+                                            }`}
+                                            key={paraIndex}
+                                          >
+                                            {para}
+                                          </li>
+                                        ))}
+                                      </ul>
+                                    )}
                                   </td>
                                 </tr>
                               ))}
                             </tbody>
                           </table>
-
                         </div>
                       </div>
 
@@ -677,15 +700,14 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
                         Equipment’s please visit us at www.instacertify.com for
                         more details.
                       </p>
-
-
-
                     </div>
 
                     <div className="thanking">
                       <p>Thanking You</p>
                       <img width="220" src={renning} alt="" />
-                      <p className="for">For Instacertify Labs Private Limited</p>
+                      <p className="for">
+                        For Instacertify Labs Private Limited
+                      </p>
                     </div>
 
                     <hr />
@@ -710,7 +732,6 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
                         <span>Print</span>
                       </button>
                     </div>
-
                   </div>
                 </div>
               )}

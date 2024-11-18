@@ -3,7 +3,7 @@ import MainContext from './MainContext';
 import { deleteReq, get, post, put, postDocuments } from '../Api/api'
 import { useState } from 'react';
 
-// const baseUrl = "http://localhost:5000";
+const baseUrl = "http://localhost:5000";
 
 // const baseUrl = "https://hrms-backend-code.onrender.com"
 
@@ -13,7 +13,7 @@ import { useState } from 'react';
 
 // this is production baseurl
  
-const baseUrl = "https://backhrms.instacertify.com/";
+// const baseUrl = "https://backhrms.instacertify.com/";
 
 // const baseUrl = "https://hrms-backend-g3wt.onrender.com";
 
@@ -2194,12 +2194,13 @@ const MainState = (props) => {
       const data = await post(`${baseUrl}/payslip/setUserTotalLeave`, {  }, true);
       return data;
    };
-   const postQuotationFormApi = async ({  quotationNum, customerName, customerReq,mobileNum,  quotationDate, validUntil, customerId,companyName,companyAddress,   companyGSTIN,companyWebsite , content , items, userId , leadId}) => {
-      const data = await post(`${baseUrl}/lead/postQuotationForm`, {  quotationNum, customerName, customerReq,mobileNum,  quotationDate, validUntil, customerId,companyName,companyAddress,content ,   items,  companyGSTIN,companyWebsite , userId , leadId  }, true);
+   const postQuotationFormApi = async (postform) => {
+      console.log('psot',postform);
+      const data = await post(`${baseUrl}/lead/postQuotationForm`, {  ...postform  }, true);
       return data;
    };
-   const updateQuotationFormApi = async ({  quotationNum, customerName, customerReq,mobileNum,  quotationDate, validUntil, customerId,companyName,companyAddress,   companyGSTIN,companyWebsite , content , items, userId , leadId , id}) => {
-      const data = await post(`${baseUrl}/lead/updateQuotationForm/${id}`, {  quotationNum, customerName, customerReq,mobileNum,  quotationDate, validUntil, customerId,companyName,companyAddress,content ,   items,  companyGSTIN,companyWebsite , userId , leadId  }, true);
+   const updateQuotationFormApi = async (postform , id) => {
+      const data = await post(`${baseUrl}/lead/updateQuotationForm/${id}`, { ...postform }, true);
       return data;
    };
    const postProposalFormApi = async ({  proposalFor ,preparedFor , createdBy , Date, content , userId , leadId}) => {

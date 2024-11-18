@@ -44,7 +44,6 @@ const ImportLead = ({ setAlert, pop, setPop }) => {
   const location = useLocation();
   const { type, data1 } = location.state || {};
 
-  const [refreshFlag, setRefreshFlag] = useState(false);
 
   const [data, setData] = useState({});
 
@@ -774,13 +773,9 @@ const ImportLead = ({ setAlert, pop, setPop }) => {
 
                         <div className="dj">
                           <img
-                            // onClick={() =>
-                            //   navigate("/adminDash/editQuotation", {
-                            //     state: item,
-                            //   })
-                            // }
+                          
                             onClick={()=>{
-                              navigate("/adminDash/HRM/QuotationForm" , {state:{item}})
+                              navigate("/adminDash/HRM/QuotationForm" , {state:{leadId:id , item:item}})
                             }}
                             className="cursor-pointer"
                             src={veci}
