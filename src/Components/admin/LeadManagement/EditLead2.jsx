@@ -22,6 +22,7 @@ const EditLead2 = ({ setAlert, pop, setPop }) => {
     AllLeadStatus,
     getLeadStat,
     uploadToCloudinaryImg,
+    getLeadType
   } = useMain();
 
   const [pop1, setPop1] = useState(false);
@@ -49,6 +50,7 @@ const EditLead2 = ({ setAlert, pop, setPop }) => {
     Mobile: "",
     Website: "",
     LeadSource: "",
+    LeadType: "",
     NoOfEmployee: "",
     Industry: "",
     LeadStatus: "",
@@ -122,6 +124,7 @@ const EditLead2 = ({ setAlert, pop, setPop }) => {
       Mobile: item?.Mobile,
       Website: item?.Website,
       LeadSource: item?.LeadSource,
+      LeadType: item?.LeadType,
       NoOfEmployee: item?.NoOfEmployee,
       Industry: item?.Industry,
       LeadStatus: item?.LeadStatus,
@@ -146,6 +149,7 @@ const EditLead2 = ({ setAlert, pop, setPop }) => {
   const [allLeadStatus, setAllLeadStatus] = useState([]);
   const [allLeadSource, setAllLeadSource] = useState([]);
   const [allleadStat, setAllLeadStat] = useState([]);
+  const [allLeadType,setAllLeadType] = useState([]);
 
   const fetchStatus = async () => {
     const ans = await AllLeadStatus();
@@ -162,10 +166,16 @@ const EditLead2 = ({ setAlert, pop, setPop }) => {
     setAllLeadStat(ans?.data);
   };
 
+  const fetchType = async () => {
+    const ans = await getLeadType();
+    setAllLeadType(ans?.data);
+}
+
   useEffect(() => {
     fetchStatus();
     fetchSource();
     fetchStat();
+    fetchType();
   }, []);
 
   return (
@@ -263,7 +273,7 @@ const EditLead2 = ({ setAlert, pop, setPop }) => {
                         onChange={changeHandler}
                       />
 
-                    
+
                     </div>
                     <div className="lead_inp1">
                       <label htmlFor="">Company</label>
@@ -333,9 +343,9 @@ const EditLead2 = ({ setAlert, pop, setPop }) => {
                   </div>
 
                   <div className="lead_inp">
-                  <div className="lead_inp1">
-                                            <label htmlFor="">Phone *</label>
-                                            <PhoneInput
+                    <div className="lead_inp1">
+                      <label htmlFor="">Phone *</label>
+                      <PhoneInput
                         inputClass="hjj"
                         country={"in"}
                         id="Phone"
@@ -355,8 +365,8 @@ const EditLead2 = ({ setAlert, pop, setPop }) => {
                         }}
                         countryCodeEditable={false}
                       />
-                                        </div>
-                                      
+                    </div>
+
                     <div className="lead_inp1">
                       <label htmlFor="">Fax</label>
                       <input
@@ -520,6 +530,21 @@ const EditLead2 = ({ setAlert, pop, setPop }) => {
                         type="text"
                       />
                     </div>
+                  </div>
+                  <div className="lead_inp">
+
+                  <div className="lead_inp1">
+                      <label htmlFor="">Lead Type</label>
+                      <select value={formdata?.LeadType} name="LeadType" onChange={changeHandler} id="">
+                        <option>Select lead type</option>
+                       {
+                        allLeadType?.map((item,index)=>{
+                          return <option key={index} value={item?.name}>{item?.name}</option>
+                        })
+                       }
+                      </select>
+                    </div>
+
                   </div>
                 </div>
               </div>

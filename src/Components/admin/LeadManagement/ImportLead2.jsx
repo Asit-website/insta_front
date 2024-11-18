@@ -483,9 +483,15 @@ const ImportLead2 = ({ setAlert, pop, setPop }) => {
                       <p>{data?.LeadOwner?.fullName}</p>
                     </div>
 
-                    <div className="subPart">
+                    {/* <div className="subPart">
                       <h3>{data?.title}</h3>
                       <p>-</p>
+                    </div> */}
+                     <div className="subPart">
+                      {/* <h3>{data?.title}</h3>
+                      <p>-</p> */}
+                      <h3>LeadType</h3>
+                      <p>{data?.LeadType}</p>
                     </div>
 
                     <div className="subPart">

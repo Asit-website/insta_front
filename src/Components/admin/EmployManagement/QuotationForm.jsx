@@ -13,6 +13,8 @@ import { useEffect, useRef, useState } from "react";
 import toast from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useReactToPrint } from "react-to-print";
+import insta from '../../images/sodag.svg';
+import renning from '../../images/rening.png';
 // import signature from "../../images/signature.png";
 
 const data = `<h3 style="box-sizing: border-box; border-width: 0px; border-style: solid; border-color: rgb(229, 231, 235); --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; padding: 0px; margin: 0px; font-family: Inter; font-size: 18px; font-weight: 500; line-height: 32px; text-align: left; color: rgb(16, 24, 32); font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;">User App(android/iOS)</h3><ul class="ulist" style="box-sizing: border-box; border-width: 0px; border-style: solid; border-color: rgb(229, 231, 235); --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; padding: 0px; margin: 0px; font-family: gilroy; list-style: none; color: rgb(0, 0, 0); font-size: medium; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"><li style="box-sizing: border-box; border-width: 0px; border-style: solid; border-color: rgb(229, 231, 235); --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; padding: 0px; margin: 0px; font-family: Inter; font-size: 18px; font-weight: 500; line-height: 32px; text-align: left; color: rgb(16, 24, 32);">Login with</li></ul><ol class="ollist" style="box-sizing: border-box; border-width: 0px; border-style: solid; border-color: rgb(229, 231, 235); --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; padding: 0px; margin: 0px; font-family: gilroy; list-style: none; color: rgb(0, 0, 0); font-size: medium; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"><li style="box-sizing: border-box; border-width: 0px; border-style: solid; border-color: rgb(229, 231, 235); --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; padding: 0px; margin: 0px; font-family: Inter; font-size: 18px; font-weight: 400; line-height: 32px; text-align: left; color: rgb(16, 24, 32);">1. Email address</li><li style="box-sizing: border-box; border-width: 0px; border-style: solid; border-color: rgb(229, 231, 235); --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; padding: 0px; margin: 0px; font-family: Inter; font-size: 18px; font-weight: 400; line-height: 32px; text-align: left; color: rgb(16, 24, 32);">2. Password</li></ol><ul class="ulist" style="box-sizing: border-box; border-width: 0px; border-style: solid; border-color: rgb(229, 231, 235); --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; padding: 0px; margin: 0px; font-family: gilroy; list-style: none; color: rgb(0, 0, 0); font-size: medium; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"><li style="box-sizing: border-box; border-width: 0px; border-style: solid; border-color: rgb(229, 231, 235); --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; padding: 0px; margin: 0px; font-family: Inter; font-size: 18px; font-weight: 500; line-height: 32px; text-align: left; color: rgb(16, 24, 32);">Sign Up</li></ul><ol class="ollist" style="box-sizing: border-box; border-width: 0px; border-style: solid; border-color: rgb(229, 231, 235); --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; padding: 0px; margin: 0px; font-family: gilroy; list-style: none; color: rgb(0, 0, 0); font-size: medium; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"><li style="box-sizing: border-box; border-width: 0px; border-style: solid; border-color: rgb(229, 231, 235); --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; padding: 0px; margin: 0px; font-family: Inter; font-size: 18px; font-weight: 400; line-height: 32px; text-align: left; color: rgb(16, 24, 32);"><span style="box-sizing: border-box; border-width: 0px; border-style: solid; border-color: rgb(229, 231, 235); --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; padding: 0px; margin: 0px; font-family: Inter; font-size: 18px; font-weight: 600; line-height: 26px; text-align: left;">Name:</span><span>&nbsp;</span>You’ll likely be asked to enter your first and last name.</li><li style="box-sizing: border-box; border-width: 0px; border-style: solid; border-color: rgb(229, 231, 235); --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; padding: 0px; margin: 0px; font-family: Inter; font-size: 18px; font-weight: 400; line-height: 32px; text-align: left; color: rgb(16, 24, 32);"><span style="box-sizing: border-box; border-width: 0px; border-style: solid; border-color: rgb(229, 231, 235); --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; padding: 0px; margin: 0px; font-family: Inter; font-size: 18px; font-weight: 600; line-height: 26px; text-align: left;">Email address:<span>&nbsp;</span></span>You’ll need to provide a valid email address to create an account.</li></ol>`;
@@ -91,6 +93,8 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
 
   const [rows, setRows] = useState([{ subject: "", para: [] }]);
 
+  const [rows1, setRows1] = useState([{ subject: "", para: [] }]);
+
   const addRow = () => {
     setRows([...rows, { subject: "", para: [] }]);
   };
@@ -101,12 +105,22 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
     setRows(newRows);
   };
 
+  const addRow1 = () => {
+    setRows1([...rows1, { subject: "", para: [] }]);
+  };
+
+  const addPara1 = (index) => {
+    const newRows = [...rows1];
+    newRows[index].para.push("");
+    setRows1(newRows);
+  };
+
   const postQuotationForm = async () => {
     const toastId = toast.loading("Loading...");
 
     const ans = await postQuotationFormApi({
       ...formdata,
-      items: rows,
+      items: rows, rows1,
       userId: hrms_user?._id,
       leadId: id,
       content,
@@ -131,6 +145,7 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
       sessionStorage.removeItem("quotationLogoLink");
 
       setRows([]);
+      setRows1([]);
       setContent(data);
     }
     toast.dismiss(toastId);
@@ -141,7 +156,7 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
 
     const ans = await updateQuotationFormApi({
       ...formdata,
-      items: rows,
+      items: rows, rows1,
       userId: hrms_user?._id,
       leadId: id,
       content,
@@ -165,6 +180,7 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
       });
 
       setRows([]);
+      setRows1([]);
       setContent(data);
       sessionStorage.removeItem("quotationLogoLink");
     }
@@ -195,6 +211,7 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
         items,
       } = item;
       setRows(items);
+      setRows1(items);
       setFormdata({
         quotationNum,
         customerName,
@@ -262,7 +279,7 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
                     >
                       Create
                     </button>
-                    <button  className="cancelbutoons cnebuqo">Cancel</button>
+                    <button className="cancelbutoons cnebuqo">Cancel</button>
                   </div>
                 </div>
 
@@ -312,7 +329,7 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
                       />
                     </label>
 
-                    <label>
+                    {/* <label>
                       <p>CIN No.</p>
                       <input
                         type="text"
@@ -321,9 +338,9 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
                         onChange={textChangeHandler}
                         placeholder="CIN number"
                       />
-                    </label>
+                    </label> */}
 
-                    <label>
+                    {/* <label>
                       <p>Mobile Number*</p>
                       <input
                         value={formdata.mobileNum}
@@ -332,7 +349,7 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
                         type="text"
                         placeholder="+918595046368"
                       />
-                    </label>
+                    </label> */}
 
                     <label>
                       <p>Quotation Date*</p>
@@ -344,7 +361,7 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
                       />
                     </label>
 
-                    <label>
+                    {/* <label>
                       <p>Email*</p>
                       <input
                         value={formdata.email}
@@ -353,9 +370,9 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
                         type="email"
                         placeholder="instacertify@gmail.com"
                       />
-                    </label>
+                    </label> */}
 
-                    <label>
+                    {/* <label>
                       <p>Website*</p>
                       <input
                         value={formdata.website}
@@ -364,9 +381,9 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
                         type="text"
                         placeholder="www.instacertify.com"
                       />
-                    </label>
+                    </label> */}
 
-                    <label>
+                    {/* <label>
                       <p>Company Name*</p>
                       <input
                         value={formdata.companyName}
@@ -375,9 +392,9 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
                         type="text"
                         placeholder="INSTACERTIFY PVT LTD"
                       />
-                    </label>
+                    </label> */}
 
-                    <label>
+                    {/* <label>
                       <p>Company Address*</p>
                       <input
                         value={formdata.companyAddress}
@@ -386,9 +403,9 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
                         type="text"
                         placeholder=""
                       />
-                    </label>
+                    </label> */}
 
-                    <label>
+                    {/* <label>
                       <p>Company GSTIN*</p>
                       <input
                         value={formdata.companyGSTIN}
@@ -396,9 +413,9 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
                         onChange={textChangeHandler}
                         type="text"
                       />
-                    </label>
+                    </label> */}
 
-                    <label>
+                    {/* <label>
                       <p>Company Website*</p>
                       <input
                         value={formdata.companyWebsite}
@@ -406,8 +423,8 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
                         onChange={textChangeHandler}
                         type="text"
                       />
-                    </label>
-
+                    </label> */}
+                    {/* 
                     <div className="admorewrap">
                       <div className="image" onClick={handleImageClick}>
                         <img src={inputfileds} alt="" />
@@ -419,7 +436,7 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
                           onChange={handleFileChange}
                         />
                       </div>
-                    </div>
+                    </div> */}
                   </form>
 
                   <div className="docuThird">
@@ -429,7 +446,7 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
 
                     <div className="relative">
                       <table className="quotablle text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                        <thead className="theadqu">
+                        {/* <thead className="theadqu">
                           <tr>
                             <th scope="col" className="px-2 py-3">
                               Subject
@@ -438,12 +455,13 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
                               Para
                             </th>
                           </tr>
-                        </thead>
+                        </thead> */}
                         <tbody>
                           {rows.map((row, index) => (
                             <tr className="bg-white tabletr" key={index}>
                               {/* Subject input */}
                               <td className="px-2 py-4">
+                                <label className="lablis" style={{ display: "block" }} htmlFor="">Subject</label>
                                 <input
                                   type="text"
                                   className="inpu11"
@@ -487,6 +505,56 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
                               </td>
                             </tr>
                           ))}
+
+                          {rows1.map((row, index) => (
+                            <tr className="bg-white tabletr" key={index}>
+                              {/* Subject input */}
+                              <td className="px-2 py-4">
+                                <label className="lablis" style={{ display: "block" }} htmlFor="">About</label>
+                                <input
+                                  type="text"
+                                  className="inpu11"
+                                  value={row.subject}
+                                  onChange={(e) => {
+                                    const newRows = [...rows1];
+                                    newRows[index].subject = e.target.value;
+                                    setRows1(newRows);
+                                  }}
+                                />
+                              </td>
+
+                              {/* Para inputs with Add button */}
+                              <td className="px-2 py-4">
+                                {row.para.map((item, paraIndex) => (
+                                  <div
+                                    key={paraIndex}
+                                    className="flex items-center gap-2 mb-2"
+                                  >
+                                    <input
+                                      type="text"
+                                      value={item}
+                                      onChange={(e) => {
+                                        const newRows = [...rows1];
+                                        newRows[index].para[paraIndex] =
+                                          e.target.value;
+                                        setRows1(newRows);
+                                      }}
+                                      className="inpu11"
+                                    />
+                                  </div>
+                                ))}
+
+                                <div
+                                  onClick={() => addPara1(index)}
+                                  className="admorCont cursor-pointer"
+                                >
+                                  <img src={plussing} alt="" />
+                                  <span>Add Para</span>
+                                </div>
+                              </td>
+                            </tr>
+                          ))}
+
                         </tbody>
                       </table>
 
@@ -494,8 +562,8 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
                     </div>
 
                     <div onClick={addRow} className="admorCont">
-                      <img src={plussing} alt="" />
-                      <span>Add Item</span>
+                      {/* <img src={plussing} alt="" /> */}
+                      {/* <span>Add Item</span> */}
                     </div>
                   </div>
                 </div>
@@ -511,21 +579,31 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
 
                       <div className="hdquot">
 
-                        {logoImage ? (
+                        {/* {logoImage ? (
                           <img src={logoImage} alt="Logo" />
                         ) : (
                           <p></p>
-                        )}
+                        )} */}
 
-                         
+                        <img src={insta} alt="" />
+
+
 
                         <div className="hdqortright">
-                          <p>{formdata?.companyName}</p>
-                          <p>{formdata?.companyAddress}</p>
-                          <p>{formdata?.mobileNum}</p>
-                          <p>{formdata?.email}</p>
-                          <p>{formdata?.website}</p>
-                          <p>CIN: {formdata?.CINnum}</p>
+                          {/* <p>{formdata?.companyName}</p> */}
+                          <p className="labs">INSTACERTIFY LABS PVT LTD</p>
+                          {/* <p>{formdata?.companyAddress}</p> */}
+                          <p className="labs1">PK 1 Sector 63 A Noida</p>
+                          {/* <p>{formdata?.mobileNum}</p> */}
+                          <p className="labs1">Uttar Pradesh, india-201301</p>
+                          {/* <p>{formdata?.email}</p> */}
+                          <p className="labs1">+91 9999118039</p>
+                          {/* <p>{formdata?.website}</p> */}
+                          <p className="labs1">contact@instacertify.com</p>
+                          {/* <p>CIN: {formdata?.CINnum}</p>
+                           */}
+                          <p className="labs1">www.instacertify.com</p>
+                          <p className="labs">CIN: UP74999UP2022PTC170291</p>
                         </div>
 
                       </div>
@@ -550,31 +628,46 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
 
                       <div className="talbeLike">
                         <div class="relative w-full">
-                        <table className="quotablle2 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 border-collapse border border-black">
-  <thead className="theadqu2">
-    <tr>
-      <th scope="col" className="px-2 py-3 border border-black w-[30%]">Subject</th>
-      <th scope="col" className="px-2 py-3 border border-black w-[70%]">Para</th>
-    </tr>
-  </thead>
-  <tbody>
-    {rows.map((row, index) => (
-      <tr className="bg-white tabletr2 border border-black" key={index}>
-        {/* Subject */}
-        <td className="px-2 py-4 border border-black">{row.subject}</td>
+                          <table className="quotablle2 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 border-collapse border border-black">
+                            <thead className="theadqu2">
+                              <tr>
+                                <th scope="col" className="px-2 py-3 border border-black w-[30%]">Subject</th>
+                                <th scope="col" className="px-2 py-3 border border-black w-[70%]">Para</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {rows?.map((row, index) => (
+                                <tr className="bg-white tabletr2 border border-black" key={index}>
+                                  {/* Subject */}
+                                  <td className="px-2 py-4 border border-black">{row.subject}</td>
 
-        {/* Paras */}
-        <td className="addpaddingo w-full border border-black">
-          <ul className="list-disc ">
-            {row.para.map((para, paraIndex) => (
-              <li className={`adpading ${ paraIndex < row?.para?.length-1 && "list-discli" }`} key={paraIndex}>{para}</li>
-            ))}
-          </ul>
-        </td>
-      </tr>
-    ))}
-  </tbody>
-</table>
+                                  {/* Paras */}
+                                  <td className="addpaddingo w-full border border-black">
+                                    <ul className="list-disc ">
+                                      {row.para.map((para, paraIndex) => (
+                                        <li className={`adpading ${paraIndex < row?.para?.length - 1 && "list-discli"}`} key={paraIndex}>{para}</li>
+                                      ))}
+                                    </ul>
+                                  </td>
+                                </tr>
+                              ))}
+                              {rows1?.map((row, index) => (
+                                <tr className="bg-white tabletr2 border border-black" key={index}>
+                                  {/* Subject */}
+                                  <td className="px-2 py-4 border border-black">{row.subject}</td>
+
+                                  {/* Paras */}
+                                  <td className="addpaddingo w-full border border-black">
+                                    <ul className="list-disc ">
+                                      {row.para.map((para, paraIndex) => (
+                                        <li className={`adpading ${paraIndex < row?.para?.length - 1 && "list-discli"}`} key={paraIndex}>{para}</li>
+                                      ))}
+                                    </ul>
+                                  </td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
 
                         </div>
                       </div>
@@ -585,12 +678,23 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
                         more details.
                       </p>
 
+
+
+                    </div>
+
+                    <div className="thanking">
+                      <p>Thanking You</p>
+                      <img width="220" src={renning} alt="" />
+                      <p className="for">For Instacertify Labs Private Limited</p>
                     </div>
 
                     <hr />
+                    <footer className="quotation_fruit">
+                      <p>www.instacertify.com</p>
+                    </footer>
 
                     <div className="prntBtn">
-                      <button  onClick={() => setPreivew(false)}>
+                      <button onClick={() => setPreivew(false)}>
                         <span>Cancel</span>
                       </button>
                       <button

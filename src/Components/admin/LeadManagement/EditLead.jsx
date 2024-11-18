@@ -21,6 +21,7 @@ const EditLead = ({ setAlert, pop, setPop }) => {
     AllLeadStatus,
     getLeadStat,
     uploadToCloudinaryImg,
+    getLeadType
   } = useMain();
 
   const [pop1, setPop1] = useState(false);
@@ -48,6 +49,7 @@ const EditLead = ({ setAlert, pop, setPop }) => {
     Mobile: "",
     Website: "",
     LeadSource: "",
+    LeadType: "",
     NoOfEmployee: "",
     Industry: "",
     LeadStatus: "",
@@ -88,18 +90,18 @@ const EditLead = ({ setAlert, pop, setPop }) => {
     const { name, value } = e.target;
 
     if (name === "Phone" && value.length > 10) {
-        return
+      return
     }
 
     if (name === "Mobile" && value.length > 10) {
-        return
+      return
     }
 
     setFormdata((prev) => ({
-        ...prev,
-        [name]: value
+      ...prev,
+      [name]: value
     }))
-}
+  }
 
   const submitHandler = async () => {
     const ans = await updateLead({ ...formdata, id: item?._id });
@@ -117,6 +119,7 @@ const EditLead = ({ setAlert, pop, setPop }) => {
   const [allLeadStatus, setAllLeadStatus] = useState([]);
   const [allLeadSource, setAllLeadSource] = useState([]);
   const [allleadStat, setAllLeadStat] = useState([]);
+  const [allLeadType,setAllLeadType] = useState([]);
   const [leadUpldProf, setLeadUpLdPro] = useState("");
 
   const fetchStatus = async () => {
@@ -134,10 +137,16 @@ const EditLead = ({ setAlert, pop, setPop }) => {
     setAllLeadStat(ans?.data);
   };
 
+  const fetchType = async () => {
+    const ans = await getLeadType();
+    setAllLeadType(ans?.data);
+}
+
   useEffect(() => {
     fetchStatus();
     fetchSource();
     fetchStat();
+    fetchType();
   }, []);
 
   useEffect(() => {
@@ -155,6 +164,7 @@ const EditLead = ({ setAlert, pop, setPop }) => {
       Mobile: item?.Mobile,
       Website: item?.Website,
       LeadSource: item?.LeadSource,
+      LeadType: item?.LeadType,
       NoOfEmployee: item?.NoOfEmployee,
       Industry: item?.Industry,
       LeadStatus: item?.LeadStatus,
@@ -544,8 +554,21 @@ const EditLead = ({ setAlert, pop, setPop }) => {
                         type="date"
                       />
                     </div>
-                    <div className="lead_inp1"></div>
+                    <div className="lead_inp1">
+                      <label htmlFor="">Lead Type</label>
+                      <select value={formdata?.LeadType} name="LeadType" onChange={changeHandler} id="">
+                        <option>Select lead type</option>
+                       {
+                        allLeadType?.map((item,index)=>{
+                          return <option key={index} value={item?.name}>{item?.name}</option>
+                        })
+                       }
+                      </select>
+                    </div>
+                    {/* <div className="lead_inp1"></div> */}
                   </div>
+
+
                 </div>
               </div>
 

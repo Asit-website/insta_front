@@ -17,7 +17,7 @@ import 'react-phone-input-2/lib/style.css'
 
 
 const CreateLead2 = ({ setAlert, pop, setPop }) => {
-    const { user, createLead, getEmployees, AllLeadSource, AllLeadStatus, getLeadStat, uploadToCloudinaryImg } = useMain();
+    const { user, createLead, getEmployees, AllLeadSource, AllLeadStatus, getLeadStat, uploadToCloudinaryImg,getLeadType } = useMain();
     const [pop1, setPop1] = useState(false);
     const stylePeer = {
         display: pop1 ? "block" : "none"
@@ -40,6 +40,7 @@ const CreateLead2 = ({ setAlert, pop, setPop }) => {
         Mobile: "",
         Website: "",
         LeadSource: "",
+        LeadType:"",
         NoOfEmployee: "",
         Industry: "",
         LeadStatus: "",
@@ -178,6 +179,7 @@ const CreateLead2 = ({ setAlert, pop, setPop }) => {
                 Mobile: "",
                 Website: "",
                 LeadSource: "",
+                LeadType:"",
                 NoOfEmployee: "",
                 Industry: "",
                 LeadStatus: "",
@@ -215,6 +217,7 @@ const CreateLead2 = ({ setAlert, pop, setPop }) => {
     const [allLeadStatus, setAllLeadStatus] = useState([]);
     const [allLeadSource, setAllLeadSource] = useState([]);
     const [allleadStat, setAllLeadStat] = useState([]);
+    const [allLeadType,setAllLeadType] = useState([]);
 
 
     const fetchStatus = async () => {
@@ -232,10 +235,16 @@ const CreateLead2 = ({ setAlert, pop, setPop }) => {
         setAllLeadStat(ans?.data);
     }
 
+    const fetchType = async () => {
+        const ans = await getLeadType();
+        setAllLeadType(ans?.data);
+    }
+
     useEffect(() => {
         fetchStatus();
         fetchSource();
         fetchStat();
+        fetchType();
     }, [])
 
     return (
@@ -538,6 +547,22 @@ const CreateLead2 = ({ setAlert, pop, setPop }) => {
                                         </div>
 
                                     </div>
+
+                                    <div className="lead_inp">
+                                       
+                                       <div className="lead_inp1">
+                                           <label htmlFor="">Lead Type</label>
+                                           <select name="LeadType" onChange={changeHandler} id="">
+                                               <option>Select lead type</option>
+                                              {
+                                                allLeadType?.map((item,index)=>{
+                                                    return <option key={index} value={item?.name}>{item?.name}</option>
+                                                })
+                                              }
+                                           </select>
+                                       </div>
+
+                                   </div>
 
 
 

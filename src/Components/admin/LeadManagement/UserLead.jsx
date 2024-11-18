@@ -559,6 +559,10 @@ const UserLead = ({ setAlert, pop, setPop }) => {
                                                     {/* First Name */}
                                                     LeadName
                                                 </th>
+                                                <th scope="col" className="px-3 py-3 leadti">
+                                                    {/* First Name */}
+                                                    LeadType
+                                                </th>
                                                 {/* <th scope="col" className="px-3 py-3 leadti">
             Last name
 
@@ -611,6 +615,9 @@ const UserLead = ({ setAlert, pop, setPop }) => {
                                                         </td>
                                                         <td scope="col" className="px-3 py-3 myleadtit2">
                                                             {item?.FirstName}{item?.LastName}
+                                                        </td>
+                                                        <td scope="col" className="px-3 py-3 myleadtit2">
+                                                            {item?.LeadType}
                                                         </td>
                                                         {/* <td scope="col" className="px-3 py-3 myleadtit2">
                     {item?.LastName}

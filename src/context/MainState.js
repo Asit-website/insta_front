@@ -1418,6 +1418,7 @@ const MainState = (props) => {
          Mobile,
          Website,
          LeadSource,
+         LeadType,
          NoOfEmployee,
          Industry,
          LeadStatus,
@@ -1459,6 +1460,7 @@ const MainState = (props) => {
             Mobile,
             Website,
             LeadSource,
+            LeadType,
             NoOfEmployee,
             Industry,
             LeadStatus,
@@ -1492,6 +1494,7 @@ const MainState = (props) => {
             Mobile,
             Website,
             LeadSource,
+            LeadType,
             NoOfEmployee,
             Industry,
             LeadStatus,
@@ -1566,6 +1569,7 @@ const MainState = (props) => {
          Mobile,
          Website,
          LeadSource,
+         LeadType,
          NoOfEmployee,
          Industry,
          LeadStatus,
@@ -1608,6 +1612,7 @@ const MainState = (props) => {
             Mobile,
             Website,
             LeadSource,
+            LeadType,
             NoOfEmployee,
             Industry,
             LeadStatus,
@@ -1643,6 +1648,7 @@ const MainState = (props) => {
             Mobile,
             Website,
             LeadSource,
+            LeadType,
             NoOfEmployee,
             Industry,
             LeadStatus,
@@ -2123,6 +2129,27 @@ const MainState = (props) => {
       return data;
    };
 
+   const getLeadType = async () => {
+      const data = await get(`${baseUrl}/system/getLeadType`, true);
+      return data;
+   };
+
+   const postLeadType = async ({ name }) => {
+      const data = await post(`${baseUrl}/system/postLeadType`, { name }, true);
+      return data;
+   };
+
+   const updateLeadType = async ({ id, name }) => {
+      const data = await put(`${baseUrl}/system/updateLeadType/${id}`, { name }, true);
+      return data;
+   };
+
+   const deleteLeadType = async (id) => {
+      const data = await deleteReq(`${baseUrl}/system/deleteLeadType/${id}`, true);
+      return data;
+   };
+
+
    const getFollowUp = async () => {
       const data = await get(`${baseUrl}/system/getFollow`, true);
       return data;
@@ -2460,6 +2487,10 @@ const MainState = (props) => {
          deleteQuotation1 , 
          uploadSingleImage , 
          getAllProjectUserApi , 
+         getLeadType,
+         postLeadType,
+         updateLeadType,
+         deleteLeadType,
          savenoteatt ,AllRolesapi ,  closeLead , deleteQproapi , createExpenseApi , changeStatusBreak , deleteProjectTaskapi22 , EditProjectTask , postHalfDay , closeLeadApiFetch2 , closeLeadApiFetch , postNotification2 , getUserHalfDay , rejectHalfDay , acceptHalf , acceptassetsapi , getTodayLead , getTodayLead2
       }}> 
          {props.children}

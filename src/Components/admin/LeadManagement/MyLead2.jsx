@@ -407,6 +407,9 @@ const MyLead2 = ({ setAlert, pop, setPop }) => {
                         LeadName
                       </th>
                       <th scope="col" className="px-6 py-3 taskTitl ">
+                        LeadType
+                      </th>
+                      <th scope="col" className="px-6 py-3 taskTitl ">
                         Email
                       </th>
                       <th scope="col" className="px-6 py-3 taskTitl ">
@@ -449,6 +452,9 @@ const MyLead2 = ({ setAlert, pop, setPop }) => {
                         <td className="px-6 py-4 taskAns">{item?.Company}</td>
                         <td className="px-6 py-4 taskAns">
                           {item?.FirstName} {item?.LastName}
+                        </td>
+                        <td className="px-6 py-4 taskAns">
+                         {item?.LeadType}
                         </td>
                         <td className="px-6 py-4 taskAns">{item?.Email}</td>
                         <td className="px-6 py-4 taskAns">{item?.Website}</td>

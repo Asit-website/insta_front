@@ -17,7 +17,7 @@ import usit from '../../images/usit.png'
 
 
 const CreateLead = ({ setAlert, pop, setPop }) => {
-    const { user, createLead, getEmployees, AllLeadSource, AllLeadStatus, getLeadStat, uploadToCloudinaryImg } = useMain();
+    const { user, createLead, getEmployees, AllLeadSource, AllLeadStatus, getLeadStat, uploadToCloudinaryImg,getLeadType } = useMain();
     const [pop1, setPop1] = useState(false);
     const stylePeer = {
         display: pop1 ? "block" : "none"
@@ -38,6 +38,7 @@ const CreateLead = ({ setAlert, pop, setPop }) => {
         Mobile: "",
         Website: "",
         LeadSource: "",
+        LeadType: "",
         NoOfEmployee: "",
         Industry: "",
         LeadStatus: "",
@@ -176,6 +177,7 @@ const CreateLead = ({ setAlert, pop, setPop }) => {
                 Mobile: "",
                 Website: "",
                 LeadSource: "",
+                LeadType: "",
                 NoOfEmployee: "",
                 Industry: "",
                 LeadStatus: "",
@@ -212,6 +214,7 @@ const CreateLead = ({ setAlert, pop, setPop }) => {
     const [allLeadStatus, setAllLeadStatus] = useState([]);
     const [allLeadSource, setAllLeadSource] = useState([]);
     const [allleadStat, setAllLeadStat] = useState([]);
+    const [allLeadType,setAllLeadType] = useState([]);
 
     const fetchStatus = async () => {
         const ans = await AllLeadStatus();
@@ -228,10 +231,16 @@ const CreateLead = ({ setAlert, pop, setPop }) => {
         setAllLeadStat(ans?.data);
     }
 
+    const fetchType = async () => {
+        const ans = await getLeadType();
+        setAllLeadType(ans?.data);
+    }
+
     useEffect(() => {
         fetchStatus();
         fetchSource();
         fetchStat();
+        fetchType();
     }, [])
 
     return (
@@ -385,22 +394,22 @@ const CreateLead = ({ setAlert, pop, setPop }) => {
                                     <div className="lead_inp">
                                         <div className="lead_inp1">
                                             <label htmlFor="">Phone *</label>
-                                            <PhoneInput                                      
-                                            inputClass="hjj"
-                                            country={'in'}
-                                            id="Phone"
-                                            value={formdata?.Phone}
-                                            name="Phone"
-                                            placeholder="Enter your phone"
-                                            onChange={Phone => changeHandler({ target: { value: Phone, name: 'Phone' } })}
+                                            <PhoneInput
+                                                inputClass="hjj"
+                                                country={'in'}
+                                                id="Phone"
+                                                value={formdata?.Phone}
+                                                name="Phone"
+                                                placeholder="Enter your phone"
+                                                onChange={Phone => changeHandler({ target: { value: Phone, name: 'Phone' } })}
 
-                                            inputProps={{
-                                                required: true,
-                                            }}
-                                            countryCodeEditable={false}
-                                        />
+                                                inputProps={{
+                                                    required: true,
+                                                }}
+                                                countryCodeEditable={false}
+                                            />
                                         </div>
-                                      
+
                                         <div className="lead_inp1">
                                             <label htmlFor="">Fax</label>
                                             <input value={formdata.Fax} name="Fax" onChange={changeHandler} type="text" />
@@ -421,7 +430,7 @@ const CreateLead = ({ setAlert, pop, setPop }) => {
                                         </div>
                                     </div>
 
-                                  
+
                                     <div className="lead_inp">
                                         <div className="lead_inp1">
                                             <label htmlFor="Industry">Industry</label>
@@ -517,6 +526,23 @@ const CreateLead = ({ setAlert, pop, setPop }) => {
                                                     allLeadSource?.map((item, index) => (
                                                         <option key={index} value={item?.name}>{item?.name}</option>
                                                     ))
+                                                }
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+                                    
+                                    <div className="lead_inp">
+                                       
+                                        <div className="lead_inp1">
+                                            <label htmlFor="">Lead Type</label>
+                                            <select name="LeadType" onChange={changeHandler} id="">
+                                                <option>Select lead type</option>
+                                                {
+                                                    allLeadType?.map((item,index)=>{
+                                                        return <option key={index} value={item?.name}>{item?.name}</option>
+                                                    })
                                                 }
                                             </select>
                                         </div>
