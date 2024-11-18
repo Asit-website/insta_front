@@ -469,6 +469,7 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
 
                     <div className="allrowwracont">
                       {rows.map((row, index) => (
+                        (row.subject !== "Timeline" && row.subject !== "Our Banking Details" && row.subject !== "Validity") && 
                         <div className="bg-white tabletr" key={index}>
                           <p className="rowsubjename">{row.subject}</p>
 
@@ -586,7 +587,10 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
               {preview && (
                 <div className="previwwraps">
                   <div className="qutaRight">
-                    <div ref={contonentPDF} className="qutaRightcont">
+                    <div ref={contonentPDF} className="conepdfref">
+
+                 
+                    <div  className="qutaRightcont">
                       <div className="hdquot">
                         <img src={insta} alt="" />
 
@@ -714,6 +718,8 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
                     <footer className="quotation_fruit">
                       <p>www.instacertify.com</p>
                     </footer>
+
+                    </div>
 
                     <div className="prntBtn">
                       <button onClick={() => setPreivew(false)}>
