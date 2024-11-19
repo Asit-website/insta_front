@@ -7534,6 +7534,8 @@ input::-webkit-inner-spin-button {
 }
 .labs{
   color: #EC691F !important;
+  font-weight: bold !important;
+  font-size: 16px !important;
 }
 .labs1{
   color: gray !important;

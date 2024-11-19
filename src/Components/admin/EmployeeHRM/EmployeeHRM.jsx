@@ -175,25 +175,25 @@ const EmployeeHRM = ({
       name: "Chirag",
       assignDate: "31/05/2023",
       endDate: "31/05/2023",
-      task: "Madfish",
+      task: "food tech",
     },
     {
       name: "Chirag",
       assignDate: "31/05/2023",
       endDate: "31/05/2023",
-      task: "Madfish",
+      task: "food tech",
     },
     {
       name: "Chirag",
       assignDate: "31/05/2023",
       endDate: "31/05/2023",
-      task: "Madfish",
+      task: "food tech",
     },
     {
       name: "Chirag",
       assignDate: "31/05/2023",
       endDate: "31/05/2023",
-      task: "Madfish",
+      task: "food tech",
     },
   ]);
 

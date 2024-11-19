@@ -802,7 +802,7 @@ const ImportLead = ({ setAlert, pop, setPop }) => {
                     ))}
                   </div>
                 ) : (
-                  <span className="norecord">No records found</span>
+                  <span className="norecord"></span>
                 )}
               </div>
 

@@ -16,7 +16,8 @@ import { useReactToPrint } from "react-to-print";
 import insta from "../../images/sodag.svg";
 import renning from "../../images/rening.png";
 import { RxCross2 } from "react-icons/rx";
-
+import hg1 from '../../images/hg1.png';
+import hg2 from '../../images/hg2.png';
 
 const QuotationForm = ({ setAlert, pop, setPop }) => {
   const {
@@ -163,6 +164,7 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
     const postform = {...formdata , userId: hrms_user?._id,leadId: leadId ,  rows};
 
     const ans = await postQuotationFormApi(postform);
+    console.log(ans);
 
     if (ans?.status) {
       toast.success("Successfuly created");
@@ -414,7 +416,7 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
                         name="quotationNum"
                         onChange={textChangeHandler}
                         type="text"
-                        placeholder="CRS/9/24-25/317"
+                        // placeholder="CRS/9/24-25/317"
                       />
                     </label>
 
@@ -425,7 +427,7 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
                         name="customerName"
                         onChange={textChangeHandler}
                         type="text"
-                        placeholder="Akash Negi"
+                        // placeholder="Akash Negi"
                       />
                     </label>
 
@@ -436,7 +438,7 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
                         name="customerCompany"
                         onChange={textChangeHandler}
                         type="text"
-                        placeholder="Company"
+                        // placeholder="Company"
                       />
                     </label>
 
@@ -447,7 +449,7 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
                         name="customerAddress"
                         onChange={textChangeHandler}
                         type="text"
-                        placeholder="customer Address"
+                        // placeholder="customer Address"
                       />
                     </label>
 
@@ -589,9 +591,11 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
                   <div className="qutaRight">
                     <div ref={contonentPDF} className="conepdfref">
 
-                 
+                    <img className="hg1" src={hg1} alt="" />
                     <div  className="qutaRightcont">
+                  
                       <div className="hdquot">
+                       
                         <img src={insta} alt="" />
 
                         <div className="hdqortright">
@@ -635,7 +639,7 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
                                   className="bg-white tabletr2 border border-black"
                                   key={index}
                                 >
-                                  <td className="px-2 py-4 border border-black">
+                                  <td className="px-2 py-4 border border-black sikl">
                                     {row.subject}
                                   </td>
 
@@ -715,14 +719,15 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
                     </div>
 
                     <hr />
-                    <footer className="quotation_fruit">
+                    {/* <footer className="quotation_fruit">
                       <p>www.instacertify.com</p>
-                    </footer>
+                    </footer> */}
+                    <img className="hg1" src={hg2} alt="hg2" />
 
                     </div>
 
                     <div className="prntBtn">
-                      <button onClick={() => setPreivew(false)}>
+                      <button className="canct" onClick={() => setPreivew(false)}>
                         <span>Cancel</span>
                       </button>
                       <button
