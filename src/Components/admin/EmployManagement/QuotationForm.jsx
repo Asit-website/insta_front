@@ -30,7 +30,7 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
 
   const location = useLocation();
 
-  const { leadId, item } = location.state;
+  const { leadId ,item} = location.state;
 
 
   const [formdata, setFormdata] = useState({
@@ -161,7 +161,8 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
   const postQuotationForm = async () => {
     const toastId = toast.loading("Loading...");
 
-    const postform = {...formdata , userId: hrms_user?._id,leadId: leadId ,  rows};
+    const postform = {...formdata , userId: hrms_user?._id, leadId:leadId ,  rows};
+
 
     const ans = await postQuotationFormApi(postform);
     console.log(ans);

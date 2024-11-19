@@ -312,7 +312,7 @@ const ImportLead = ({ setAlert, pop, setPop }) => {
 
   const getQuotationOfLead = async () => {
     const ans = await getQuotationApi(id);
-    console.log('ans',ans);
+    console.log('anuhhjs',ans);
     setAllQuota(ans?.quotations);
     setAllPropo(ans?.proposals);
   };
@@ -744,7 +744,7 @@ const ImportLead = ({ setAlert, pop, setPop }) => {
                   <button
                     onClick={() =>
                       navigate("/adminDash/HRM/QuotationForm", {
-                        state: { id },
+                        state: { leadId:id  },
                       })
                     }
                     className="createQquot"

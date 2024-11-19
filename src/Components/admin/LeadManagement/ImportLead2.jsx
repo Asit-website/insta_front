@@ -281,7 +281,7 @@ const ImportLead2 = ({ setAlert, pop, setPop }) => {
 
   const getQuotationOfLead = async () => {
     const ans = await getQuotationApi(id);
-    setAllQuota(ans);
+    setAllQuota(ans?.quotations);
   };
 
   const deleteQuotationApi = async(id)=>{
@@ -750,8 +750,7 @@ const ImportLead2 = ({ setAlert, pop, setPop }) => {
 
                   <button
                     onClick={() =>
-                      // navigate("/adminDash/createQuotation", { state: { id } })
-                      navigate("/employeeDash/HRM/QuotationForm", { state: { id } })
+                      navigate("/employeeDash/HRM/QuotationForm", {  state: { leadId:id  } })
                     }
                     className="createQquot"
                   >
