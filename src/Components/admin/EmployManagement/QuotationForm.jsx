@@ -18,6 +18,7 @@ import renning from "../../images/rening.png";
 import { RxCross2 } from "react-icons/rx";
 import hg1 from '../../images/hg1.png';
 import hg2 from '../../images/hg2.png';
+import piku from '../../images/piku.png'
 
 const QuotationForm = ({ setAlert, pop, setPop }) => {
   const {
@@ -71,14 +72,14 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
     {
       subject: "Timeline",
       para: [
-        "Timeline	BIS Certification Process Step 1 to 3:  10 -15 Working days",
-        "	BIS Certification Process Step 4 to 6:  10-15 Working days",
-        "	The complete duration to obtain the BIS certificates will take 20-25 working days",
+        // "Timeline	BIS Certification Process Step 1 to 3:  10 -15 Working days",
+        // "	BIS Certification Process Step 4 to 6:  10-15 Working days",
+        // "	The complete duration to obtain the BIS certificates will take 20-25 working days",
       ],
     },
     {
       subject: "Validity",
-      para: ["2 years"],
+      para: [],
     },
     {
       subject: "Commercial Scope",
@@ -195,14 +196,14 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
         {
           subject: "Timeline",
           para: [
-            "Timeline	BIS Certification Process Step 1 to 3:  10 -15 Working days",
-            "	BIS Certification Process Step 4 to 6:  10-15 Working days",
-            "	The complete duration to obtain the BIS certificates will take 20-25 working days",
+            // "Timeline	BIS Certification Process Step 1 to 3:  10 -15 Working days",
+            // "	BIS Certification Process Step 4 to 6:  10-15 Working days",
+            // "	The complete duration to obtain the BIS certificates will take 20-25 working days",
           ],
         },
         {
           subject: "Validity",
-          para: ["2 years"],
+          para: [],
         },
         {
           subject: "Commercial Scope",
@@ -279,14 +280,14 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
         {
           subject: "Timeline",
           para: [
-            "Timeline	BIS Certification Process Step 1 to 3:  10 -15 Working days",
-            "	BIS Certification Process Step 4 to 6:  10-15 Working days",
-            "	The complete duration to obtain the BIS certificates will take 20-25 working days",
+            // "Timeline	BIS Certification Process Step 1 to 3:  10 -15 Working days",
+            // "	BIS Certification Process Step 4 to 6:  10-15 Working days",
+            // "	The complete duration to obtain the BIS certificates will take 20-25 working days",
           ],
         },
         {
           subject: "Validity",
-          para: ["2 years"],
+          para: [],
         },
         {
           subject: "Commercial Scope",
@@ -404,7 +405,9 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
                     >
                       Create
                     </button>
-                    <button className="cancelbutoons cnebuqo">Cancel</button>
+                    <button onClick={()=>{
+                      navigate(`${role === "ADMIN" ? "/adminDash/myLead" : "/employeeDash/myLead"}`)
+                    }} className="cancelbutoons cnebuqo">Cancel</button>
                   </div>
                 </div>
 
@@ -472,7 +475,7 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
 
                     <div className="allrowwracont">
                       {rows.map((row, index) => (
-                        (row.subject !== "Timeline" && row.subject !== "Our Banking Details" && row.subject !== "Validity") && 
+                        (row.subject !== "Our Banking Details") && 
                         <div className="bg-white tabletr" key={index}>
                           <p className="rowsubjename">{row.subject}</p>
 
@@ -592,12 +595,13 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
                   <div className="qutaRight">
                     <div ref={contonentPDF} className="conepdfref">
 
-                    <img className="hg1" src={hg1} alt="" />
+                    {/* <img className="hg1" src={hg1} alt="" /> */}
+                    <img className="hg1" src={piku} alt="piku" />
                     <div  className="qutaRightcont">
                   
                       <div className="hdquot">
                        
-                        <img src={insta} alt="" />
+                        {/* <img src={insta} alt="" />
 
                         <div className="hdqortright">
                           <p className="labs">INSTACERTIFY LABS PVT LTD</p>
@@ -607,10 +611,11 @@ const QuotationForm = ({ setAlert, pop, setPop }) => {
                           <p className="labs1">contact@instacertify.com</p>
                           <p className="labs1">www.instacertify.com</p>
                           <p className="labs">CIN: UP74999UP2022PTC170291</p>
-                        </div>
+                        </div> */}
+                        {/* <img src={piku} alt="piku" /> */}
                       </div>
 
-                      <hr />
+                      {/* <hr /> */}
 
                       <div className="hdqro2wrap">
                         <div className="hdqrotp1">

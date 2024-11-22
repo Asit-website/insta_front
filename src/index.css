@@ -901,12 +901,19 @@ td {
   height: 44px;
   cursor: pointer;
   margin-left: 20px;
+  /* padding: 0px 20px; */
 }
-
+.silom{
+  margin-left: 0px !important;
+  padding: 0px 20px !important;
+}
 .sidemargin {
   margin-left: 0px !important;
 }
-
+.ththoo{
+  width: 100% !important;
+  max-width: 100% !important;
+}
 .HRMS-dash-box {
   display: flex;
   align-items: center;
@@ -7540,6 +7547,9 @@ input::-webkit-inner-spin-button {
 .labs1{
   color: gray !important;
   font-size: 14px !important;
+}
+.semo{
+  color: #0B56E4 !important;
 }
 .quotation_fruit{
   background-color: #EC691F !important;

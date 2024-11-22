@@ -925,6 +925,8 @@ const EmployeeHRM = ({
                                     END DATE
                                   </th>
 
+                                  
+
                                  
                                 </tr>
                               </thead>
@@ -958,7 +960,7 @@ const EmployeeHRM = ({
                       </NavLink>
 
                       {/* third  */}
-                      <NavLink to="/adminDash/announcement">
+                    
                         <div className="hrLefThi">
                           <h2 className="headind">
                             {" "}
@@ -1025,7 +1027,7 @@ const EmployeeHRM = ({
                             </table>
                           </div>
                         </div>
-                      </NavLink>
+                     
                     </div>
 
                     {/* right side */}
@@ -1748,7 +1750,7 @@ const EmployeeHRM = ({
                     </div>
 
                     {/* this is for annoucement  */}
-                    <div className="hrLefThi">
+                    <div className="hrLefThi ththoo">
                       <div className="adflex">
                         <img src={annNav} alt="" />
                         <h3>Announcement Lists </h3>
@@ -1767,6 +1769,10 @@ const EmployeeHRM = ({
                               <th scope="col" className="px-6 py-3 taskTitl">
                                 END DATE
                               </th>
+
+                              {/* <th scope="col" className="px-6 py-3 taskTitl">
+                                DESCRIPTION
+                              </th> */}
 
                             
                             </tr>

@@ -232,6 +232,8 @@
     line-height: 24px;
     letter-spacing: 0.0015em;
     text-align: left;
+    font-weight: 300;
+    opacity: .8;
 }
 
 .admorewrap {
@@ -429,6 +431,44 @@ border-bottom: 1px solid #ccc ;
     font-size: 24px;
     cursor: pointer;
     width: 5%;
+}
+.expensepop{
+    height: 600px !important;
+    overflow-y: scroll !important;
+}
+.allInputFileds label input, select{
+    width: 100% !important;
+}
+.openform{
+    max-width: 630px !important;
+    width: 100% !important;
+}
+.awardpopupcont{
+    max-width: 600px !important;
+    width: 100% !important;
+    border-radius: 15px !important;
+    padding: 15px 30px !important;
+}
+.lableawaiwrap{
+    gap: 20px !important;
+}
+.lableawaiwrap label{
+    margin-bottom: 15px !important;
+}
+.lableawaiwrap label p{
+    font-size: 14px !important;
+}
+.lableawaiwrap label select {
+    font-family: inter !important;
+    font-size: 14px !important;
+}
+.lableawaiwrap label input{
+    font-size: 14px !important;
+}
+.labwrapp{
+    width: 100% !important;
+    justify-content: center !important;
+    gap: 60px !important;
 }
 .qutaRightcont {
     display: flex;
